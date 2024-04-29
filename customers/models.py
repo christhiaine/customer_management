@@ -11,22 +11,10 @@ class Customer(models.Model):
     business_name = models.CharField(max_length=100)
     business_categories = models.CharField(max_length=100)
     registration_date = models.DateField(default=date.today)
-    age_of_business_in_days = models.IntegerField(blank=True, null=True)
+    # age_of_business_in_days = models.IntegerField(blank=True, null=True)
     location = models.CharField(max_length=100)
 
 
     def __str__(self):
         return self.name
-
-    
-    def save(self):
-        days = 0
-        start_date =self.registration_date
-        while start_date <= date.today():
-            days += 1
-            start_date+= timedelta(days=1)
-        if self.id: 
-            self.age_of_business_in_days = days
-
-            return super(Customer, self).save()
 
