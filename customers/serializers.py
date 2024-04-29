@@ -9,7 +9,7 @@ class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
         fields = ['id', 'name', 'email', 'phone', 'date_of_birth', 'nationality', 
-                  'business_name', 'business_categories', 'registration_date', 'age_of_business_in_days', 'location']
+                  'business_name', 'business_category', 'registration_date', 'age_of_business_in_days', 'location']
         
     def get_age_of_business_in_days(self, obj):
         registration_date = obj.registration_date
